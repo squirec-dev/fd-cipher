@@ -1,0 +1,27 @@
+{
+  "name": "fd-cipher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/squirec-dev/fd-cipher.git"
+  },
+  "author": "Claire Squire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/squirec-dev/fd-cipher/issues"
+  },
+  "homepage": "https://github.com/squirec-dev/fd-cipher#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  }
+}
