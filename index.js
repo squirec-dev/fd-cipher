@@ -14,7 +14,7 @@ const DecryptPigLat = (text) => text.split(' ').map(word => `${
     }`).join(` `);
 
 const EncryptRotation = (text, options) => {
-    return [...text].map((char, idx) => {
+    return [...text].map((char) => {
         if (char.match(ALPHA_REGEX)) {
             const convertCase = char === char.toUpperCase();
             let newIndex = ALPHABET.indexOf(char.toLowerCase()) + options.val;
@@ -29,10 +29,29 @@ const EncryptRotation = (text, options) => {
         }
         return char;
     }).join('');
-}
+};
+
+const DecryptRotation = (text, options) => {
+    return [...text].map((char, idx) => {
+        if (char.match(ALPHA_REGEX)) {
+            const convertCase = char === char.toUpperCase();
+            let newIndex = ALPHABET.indexOf(char.toLowerCase()) - options.val;
+
+            if (newIndex < 0) {
+                newIndex += 26
+            }
+            if (convertCase === true) {
+                return (ALPHABET[newIndex]).toUpperCase();
+            }
+            return (ALPHABET[newIndex]);
+        }
+        return char;
+    }).join('');
+};
 
 module.exports = {
     EncryptPigLat,
     DecryptPigLat,
     EncryptRotation,
+    DecryptRotation,
 }
