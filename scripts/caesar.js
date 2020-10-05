@@ -5,18 +5,6 @@ const MATH = {
     subtract: (valA, valB) =>  valA - valB,
 }
 
-const EncryptPigLat = (text) => text.split(' ').map(word => `${
-        word.slice(1, word.length)
-    }${
-        word.charAt(0)
-    }ay`).join(` `);
-
-const DecryptPigLat = (text) => text.split(' ').map(word => `${
-        word.charAt(word.length - 3)
-    }${
-        word.slice(0, -3)
-    }`).join(` `);
-
 const CaesarCipher = (text, options) => {
     return [...text].map((char) => {
         if (char.match(ALPHA_REGEX)) {
@@ -42,7 +30,5 @@ const CaesarCipher = (text, options) => {
 };
 
 module.exports = {
-    EncryptPigLat,
-    DecryptPigLat,
     CaesarCipher,
-}
+};

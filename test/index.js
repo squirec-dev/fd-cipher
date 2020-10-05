@@ -1,5 +1,9 @@
 const { expect } = require('chai');
-const { EncryptPigLat, DecryptPigLat, EncryptRotation, DecryptRotation } = require('../index');
+const {
+    EncryptPigLat,
+    DecryptPigLat,
+    CaesarCipher,
+} = require('../index');
 
 describe('Pig Latin:', () => {
     it('Encrypt; Given a string, returns encrypted', () => {
@@ -15,21 +19,23 @@ describe('Pig Latin:', () => {
     });
 });
 
-describe('Rotation:', () => {
+describe('Caesar:', () => {
     it('Encrypt; Given a string & a rotation number, returns encrypted', () => {
-        expect(EncryptRotation(
+        expect(CaesarCipher(
             'The quick brown fox jumps over the lazy dog',
             {
                 val: 2,
+                method: 'add',
             },
         )).to.equal('Vjg swkem dtqyp hqz lworu qxgt vjg ncba fqi');
     });
     
     it('Decrypt; Given a string & a rotation number, returns decrypted', () => {
-        expect(DecryptRotation(
+        expect(CaesarCipher(
             'Vjg swkem dtqyp hqz lworu qxgt vjg ncba fqi',
             {
                 val: 2,
+                method: 'subtract',
             },
         )).to.equal('The quick brown fox jumps over the lazy dog');
     });
